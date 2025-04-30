@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Heart Adventure</title>
+  <title>Secret of the Love Truck</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Intro Screen -->
+  <div id="intro-screen">
+    <h1>Note from the Unknown Sender:</h1>
+    <p>This is not just a game.</p>
+    <p>Scattered across this world are three glowing hearts—<br>
+      each one holds a part of a hidden truth.</p>
+    <p>Collect them all to uncover what’s waiting for you at the end of the road.</p>
+    <p>Press [Enter] to begin your journey.</p>
+  </div>
+
+  <!-- Main Game Area -->
   <div id="game">
     <div id="player"></div>
     <div class="heart" style="left: 200px;"></div>
@@ -14,7 +25,17 @@
     <div class="heart" style="left: 600px;"></div>
     <div id="ground"></div>
   </div>
-  <div id="message">You collected all the hearts! Love Truck is coming...</div>
+
+  <!-- Love Truck Reveal -->
+  <div id="truck-container">
+    <div id="truck">
+      <div id="truck-door"></div>
+    </div>
+  </div>
+  
+  <!-- Love Letter Message -->
+  <div id="message"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
