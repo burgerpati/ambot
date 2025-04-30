@@ -12,7 +12,7 @@ const gravity = 1;
 const groundLevel = 50;
 
 const heartMessages = [
-  "It’s not just a game...",
+  "AHHH DADDYYY!!...",
   "You were meant to find this.",
   "The journey is just beginning..."
 ];
