@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Truck Letter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #e8f5e9; /* soft green */
+      color: #2e7d32;
+      overflow: hidden;
+    }
+
+    #start-screen, #game-screen, #truck-scene, #letter-screen {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #game-screen, #truck-scene, #letter-screen {
+      display: none;
+    }
+
+    .button {
+      padding: 12px 28px;
+      background: #4caf50;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: #388e3c;
+    }
+
+    .item {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      background-size: cover;
+      background-position: center;
+      display: inline-block;
+      cursor: pointer;
+      border: 2px solid #a5d6a7;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+    }
+
+    #truck {
+      width: 160px;
+      position: absolute;
+      bottom: 20px;
+      left: -200px;
+      transition: left 5s linear;
+    }
+
+    .message {
+      position: absolute;
+      top: 20%;
+      font-size: 22px;
+      color: #388e3c;
+      display: none;
+      font-weight: 500;
+    }
+
+    #letter-box {
+      padding: 30px;
+      background: white;
+      border: 2px solid #c8e6c9;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 18px;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <h1>Shopee Delivery para kay Jaja...</h1>
+    <button class="button" onclick="startGame()">Start Game</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen">
+    <h2>Pakihanap naman ng pake ko (susi) 😂</h2>
+    <div>
+      <div class="item" style="background-image: url('https://via.placeholder.com/80?text=🙃');" onclick="wrongItem()"></div>
+      <div class="item" style="background-image: url('https://via.placeholder.com/80?text=🧃');" onclick="wrongItem()"></div>
+      <div class="item" style="background-image: url('https://via.placeholder.com/80?text=🔑');" onclick="rightItem()"></div> <!-- KEY -->
+    </div>
+  </div>
+
+  <!-- Truck Scene -->
+  <div id="truck-scene">
+    <img id="truck" src="https://www.pngmart.com/files/7/Delivery-Truck-PNG-Pic.png" alt="truck">
+    <div class="message" id="msg1">Happy Birthday, my sunshine!</div>
+    <div class="message" id="msg2">You make every road beautiful.</div>
+    <div class="message" id="msg3">This truck is full of love and surprises!</div>
+  </div>
+
+  <!-- Final Letter -->
+  <div id="letter-screen">
+    <div id="letter-box">
+      <h2>My Birthday Letter to You</h2>
+      <p>To the one who makes my heart race faster than this truck... Happy Birthday! I hope this little surprise made you smile. You deserve the sweetest rides in life. Love you always!</p>
+    </div>
+  </div>
+
+  <script>
+    function startGame() {
+      document.getElementById("start-screen").style.display = "none";
+      document.getElementById("game-screen").style.display = "flex";
+      shuffleItems(); // Shuffle before showing
+    }
+
+    function wrongItem() {
+      alert("AHHH DADDYY! HINDI YAN ANG SUSI!!");
+    }
+
+    function rightItem() {
+      alert("YIZ, GALING TAINA!!!");
+      document.getElementById("game-screen").style.display = "none";
+      document.getElementById("truck-scene").style.display = "flex";
+      startTruck();
+    }
+
+    function startTruck() {
+      const truck = document.getElementById("truck");
+
+      truck.style.transition = "none";
+      truck.style.left = "-200px";
+      void truck.offsetWidth;
+
+      truck.style.transition = "left 5s linear";
+      truck.style.left = "100%";
+
+      setTimeout(() => {
+        document.getElementById("msg1").style.display = "block";
+      }, 1000);
+
+      setTimeout(() => {
+        document.getElementById("msg2").style.display = "block";
+      }, 3000);
+
+      setTimeout(() => {
+        document.getElementById("msg3").style.display = "block";
+      }, 5000);
+
+      setTimeout(() => {
+        document.getElementById("truck-scene").style.display = "none";
+        document.getElementById("letter-screen").style.display = "flex";
+      }, 7000);
+    }
+
+    function shuffleItems() {
+      const container = document.querySelector("#game-screen > div");
+      const items = Array.from(container.children);
+
+      container.innerHTML = "";
+
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+      }
+
+      items.forEach(item => container.appendChild(item));
+    }
+  </script>
+</body>
+</html>
