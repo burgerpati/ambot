@@ -89,7 +89,7 @@
 
   <!-- Level 1 -->
   <div id="screen-lv1" class="screen">
-    <h2>LEVEL 1: Hanapin mo ang SUSI habang gumagalaw!</h2>
+    <h2>PAKIHANAP NG PAKE KO (SUSI)! HAHAHAHA  </h2>
     <div id="lv1-items">
       <div class="item" style="background-image: url('images.jpeg');" onclick="wrongItem()"></div>
       <div class="item" style="background-image: url('images.jpeg');" onclick="wrongItem()"></div>
@@ -99,13 +99,13 @@
 
   <!-- Level 2 -->
   <div id="screen-lv2" class="screen">
-    <h2>LEVEL 2: Ang dami mong susi!!! Isa lang ang totoo!</h2>
+    <h2>Ang dami mong susi!!! Isa lang ang totoo!</h2>
     <div id="lv2-items"></div>
   </div>
 
   <!-- Level 3 -->
   <div id="screen-lv3" class="screen">
-    <h2>LEVEL 3: Nagtatago ang susi... Wait for it!</h2>
+    <h2>NATATAKOT SAYO... Wait for it!</h2>
     <div id="lv3-items"></div>
   </div>
 
@@ -113,7 +113,9 @@
   <div id="screen-truck" class="screen">
     <img id="truck" src="https://static.vecteezy.com/system/resources/thumbnails/045/832/350/small_2x/color-illustration-of-train-without-background-png.png" alt="truck">
     <div class="message" id="msg1">Happy Birthday, my sunshine!</div>
+    
     <div class="message" id="msg2">You make every road beautiful.</div>
+    
     <div class="message" id="msg3">This truck is full of love and surprises!</div>
   </div>
 
@@ -134,7 +136,7 @@
     }
 
     function wrongItem() {
-      alert("AHHH! Mali yang susi!");
+      alert("AHHH DADDY! HINDI YA ANG TUTI");
     }
 
     // LEVEL 1 FUNCTIONS
@@ -164,8 +166,8 @@
       for (let i = 0; i < total; i++) {
         const div = document.createElement("div");
         div.className = "item";
-        div.style.backgroundImage = "url('https://via.placeholder.com/80?text=🔑')";
-        div.onclick = i === correctIndex ? passLevel2 : () => alert("Fake key yan 😅");
+        div.style.backgroundImage = "url('https://static.vecteezy.com/system/resources/previews/019/907/697/original/key-graphic-clipart-design-free-png.png')";
+        div.onclick = i === correctIndex ? passLevel2 : () => alert("THAT'S FA-KE");
         container.appendChild(div);
       }
     }
@@ -184,8 +186,8 @@
       decoys.forEach(icon => {
         const div = document.createElement("div");
         div.className = "item";
-        div.style.backgroundImage = `url('https://via.placeholder.com/80?text=${icon}')`;
-        div.onclick = () => alert("Wala pa dyan 😜");
+        div.style.backgroundImage = `url('https://static.vecteezy.com/system/resources/previews/019/907/697/original/key-graphic-clipart-design-free-png.png')`;
+        div.onclick = () => alert("OVER NAMAN SA HANAP, WALA DIYAN! 😜");
         container.appendChild(div);
       });
 
@@ -193,7 +195,7 @@
       setTimeout(() => {
         const key = document.createElement("div");
         key.className = "item";
-        key.style.backgroundImage = "url('https://via.placeholder.com/80?text=🔑')";
+        key.style.backgroundImage = "url('https://static.vecteezy.com/system/resources/previews/019/907/697/original/key-graphic-clipart-design-free-png.png')";
         key.onclick = passLevel3;
         container.appendChild(key);
       }, 5000);
