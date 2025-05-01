@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Birthday Game for Jaja 💚</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #e8f5e9;
+      color: #2e7d32;
+      overflow: hidden;
+    }
+    .screen {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    .screen.active {
+      display: flex;
+    }
+    .button {
+      padding: 12px 28px;
+      background: #4caf50;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #388e3c;
+    }
+    .item {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      background-size: cover;
+      background-position: center;
+      display: inline-block;
+      cursor: pointer;
+      border: 2px solid #a5d6a7;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    #truck {
+      width: 160px;
+      position: absolute;
+      bottom: 20px;
+      left: -200px;
+      transition: left 5s linear;
+    }
+    .message {
+      position: absolute;
+      top: 20%;
+      font-size: 22px;
+      color: #388e3c;
+      display: none;
+      font-weight: 500;
+    }
+    #letter-box {
+      padding: 30px;
+      background: white;
+      border: 2px solid #c8e6c9;
+      border-radius: 20px;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Level 0: Intro -->
+  <div id="screen-intro" class="screen active">
+    <h1>Shopee Delivery para kay Jaja 💌</h1>
+    <button class="button" onclick="goToScreen('screen-lv1')">Start Game</button>
+  </div>
+
+  <!-- Level 1 -->
+  <div id="screen-lv1" class="screen">
+    <h2>LEVEL 1: Hanapin mo ang SUSI habang gumagalaw!</h2>
+    <div id="lv1-items">
+      <div class="item" style="background-image: url('https://via.placeholder.c');" onclick="wrongItem()"></div>
+      <div class="item" style="background-image: url('https://via.placeholder.com/80?text=🐸');" onclick="wrongItem()"></div>
+      <div class="item" style="background-image: url('https://via.placeholder.com/80?text=🔑');" onclick="passLevel1()"></div>
+    </div>
+  </div>
+
+  <!-- Level 2 -->
+  <div id="screen-lv2" class="screen">
+    <h2>LEVEL 2: Ang dami mong susi!!! Isa lang ang totoo!</h2>
+    <div id="lv2-items"></div>
+  </div>
+
+  <!-- Level 3 -->
+  <div id="screen-lv3" class="screen">
+    <h2>LEVEL 3: Nagtatago ang susi... Wait for it!</h2>
+    <div id="lv3-items"></div>
+  </div>
+
+  <!-- Truck Scene -->
+  <div id="screen-truck" class="screen">
+    <img id="truck" src="https://static.vecteezy.com/system/resources/thumbnails/045/832/350/small_2x/color-illustration-of-train-without-background-png.png" alt="truck">
+    <div class="message" id="msg1">Happy Birthday, my sunshine!</div>
+    <div class="message" id="msg2">You make every road beautiful.</div>
+    <div class="message" id="msg3">This truck is full of love and surprises!</div>
+  </div>
+
+  <!-- Letter -->
+  <div id="screen-letter" class="screen">
+    <div id="letter-box">
+      <h2>My Birthday Letter to You 💚</h2>
+      <p>To the one who makes my heart race faster than this truck... Happy Birthday! I hope this little surprise made you smile. You deserve the sweetest rides in life. Love you always!</p>
+    </div>
+  </div>
+
+  <script>
+    let shuffleInterval;
+
+    function goToScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function wrongItem() {
+      alert("AHHH! Mali yang susi!");
+    }
+
+    // LEVEL 1 FUNCTIONS
+    function shuffleLv1() {
+      const container = document.getElementById("lv1-items");
+      const items = Array.from(container.children);
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+      }
+      container.innerHTML = "";
+      items.forEach(i => container.appendChild(i));
+    }
+
+    function passLevel1() {
+      clearInterval(shuffleInterval);
+      goToScreen('screen-lv2');
+      setupLevel2();
+    }
+
+    // LEVEL 2
+    function setupLevel2() {
+      const container = document.getElementById("lv2-items");
+      container.innerHTML = "";
+      const total = 6;
+      const correctIndex = Math.floor(Math.random() * total);
+      for (let i = 0; i < total; i++) {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.style.backgroundImage = "url('https://via.placeholder.com/80?text=🔑')";
+        div.onclick = i === correctIndex ? passLevel2 : () => alert("Fake key yan 😅");
+        container.appendChild(div);
+      }
+    }
+
+    function passLevel2() {
+      goToScreen('screen-lv3');
+      setupLevel3();
+    }
+
+    // LEVEL 3
+    function setupLevel3() {
+      const container = document.getElementById("lv3-items");
+      container.innerHTML = "";
+
+      const decoys = ['🥒', '🍐', '🥕', '🧄', '🍄'];
+      decoys.forEach(icon => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.style.backgroundImage = `url('https://via.placeholder.com/80?text=${icon}')`;
+        div.onclick = () => alert("Wala pa dyan 😜");
+        container.appendChild(div);
+      });
+
+      // Show key after 5 sec
+      setTimeout(() => {
+        const key = document.createElement("div");
+        key.className = "item";
+        key.style.backgroundImage = "url('https://via.placeholder.com/80?text=🔑')";
+        key.onclick = passLevel3;
+        container.appendChild(key);
+      }, 5000);
+    }
+
+    function passLevel3() {
+      goToScreen('screen-truck');
+      startTruck();
+    }
+
+    // TRUCK SCENE
+    function startTruck() {
+      const truck = document.getElementById("truck");
+      truck.style.transition = "none";
+      truck.style.left = "-200px";
+      void truck.offsetWidth;
+      truck.style.transition = "left 5s linear";
+      truck.style.left = "100%";
+
+      setTimeout(() => document.getElementById("msg1").style.display = "block", 1000);
+      setTimeout(() => document.getElementById("msg2").style.display = "block", 3000);
+      setTimeout(() => document.getElementById("msg3").style.display = "block", 5000);
+      setTimeout(() => goToScreen('screen-letter'), 7000);
+    }
+
+    // Start shuffling Level 1 on load
+    window.onload = () => {
+      shuffleInterval = setInterval(shuffleLv1, 1500);
+    };
+  </script>
+</body>
+</html>
