@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NEU ROSES: Pixel Love Quest</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #111;
+      overflow: hidden;
+    }
+
+    /* Intro Screen */
+    #intro {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: url('https://i.pinimg.com/originals/3a/82/56/3a8256b391b0de71639848f2815c2b14.gif') center/cover no-repeat;
+      image-rendering: pixelated;
+    }
+
+    #gameTitle {
+      font-family: 'Press Start 2P', cursive;
+      color: #ff80aa;
+      font-size: 32px;
+      text-shadow: 2px 2px #000;
+      margin-bottom: 50px;
+    }
+
+    #startText {
+      font-family: 'Press Start 2P', cursive;
+      color: #fff;
+      font-size: 20px;
+      text-shadow: 2px 2px #000;
+      animation: blink 1s step-end infinite alternate;
+      cursor: pointer;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Hide game canvas initially */
+    #gameCanvas { display: none; }
+  </style>
+</head>
+<body>
+  <!-- Intro Screen -->
+  <div id="intro">
+    <div id="gameTitle">NEU ROSES 🌹</div>
+    <div id="startText">PRESS START</div>
+  </div>
+
+  <!-- Game Canvas -->
+  <canvas id="gameCanvas"></canvas>
+
+  <script>
+    const intro = document.getElementById('intro');
+    const startText = document.getElementById('startText');
+    const gameCanvas = document.getElementById('gameCanvas');
+
+    function startGame() {
+      intro.style.display = 'none';
+      gameCanvas.style.display = 'block';
+      initGame(); // call your game start function
+    }
+
+    // Click or press Enter/Space to start
+    startText.addEventListener('click', startGame);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') startGame();
+    });
+
+    function initGame() {
+      const ctx = gameCanvas.getContext('2d');
+      gameCanvas.width = window.innerWidth;
+      gameCanvas.height = window.innerHeight;
+      ctx.fillStyle = '#111';
+      ctx.fillRect(0,0,gameCanvas.width,gameCanvas.height);
+      ctx.fillStyle = '#fff';
+      ctx.font = '32px Press Start 2P';
+      ctx.fillText('Game Started!', 50, 100);
+      // insert your pixel game code here...
+    }
+  </script>
+</body>
+</html>
