@@ -582,18 +582,18 @@ body {
 .page-container {
     width: 400px;
     height: 600px;
-    background: linear-gradient(145deg, #7b68ee, #6a5acd);
+    background: linear-gradient(145deg, rgb(90, 33, 94), #54155e);
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    border: 4px solid #ffd700;
+    box-shadow: 0 20px 40px rgba(72, 10, 85, 0.3);
+    border: 4px solid rgb(237, 18, 226));
 }
 
 .page-screen {
     width: 100%;
     height: 480px;
-    background: #2d5016;
-    border: 4px solid #1a1a1a;
+    background: #733f68;
+    border: 4px solid #2a092b;
     border-radius: 8px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -601,7 +601,7 @@ body {
 
 .page-header {
     background: #1a1a1a;
-    color: #9bbc0f;
+    color: #8282e4;
     padding: 10px;
     text-align: center;
     font-size: 18px;
@@ -645,8 +645,8 @@ body {
     height: calc(100% - 80px); /* Adjusted to match other pages */
     overflow-y: auto;
     padding: 15px;
-    background: #2d5016;
-    color: #9bbc0f;
+    background: #733f68;
+    color: #4a113c;
     font-size: 12px;
     line-height: 1.5;
     border-radius: 4px;
@@ -676,8 +676,8 @@ body {
     display: block;
     margin: 0 auto 8px auto;
     padding: 6px 12px;
-    background: #9b5a53;
-    color: white;
+    background: #d889d1;
+    color: rgb(43, 3, 38);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -1019,17 +1019,17 @@ body {
 }
 
 .playlist-title {
-    color: #de20a5;
+    color: #a8809c;
     font-size: 14px;
     font-weight: bold;
 }
 
 .spotify-embed-container {
-    background: rgb(238, 148, 174);
+    background: rgb(85, 45, 78);
     border-radius: 12px;
     padding: 10px;
     margin-bottom: 10px;
-    border: 2px solid #9982ee;
+    border: 2px solid #82eed8;
 }
 
 .spotify-embed-container iframe {
@@ -1060,15 +1060,15 @@ body {
 }
 
 .playlist-btn:hover {
-    background: #bc0f88;
+    background: #905c80;
     color: #333;
     transform: translateY(-1px);
 }
 
 .playlist-btn.active {
-    background: #aa6d6d;
-    color: white;
-    border-color: #aa6d6d;
+    background: #faaeff;
+    color: #41034c;
+    border-color: #faaeff;
 }
 
 .music-info {
