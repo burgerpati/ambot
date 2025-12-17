@@ -676,7 +676,7 @@ body {
     display: block;
     margin: 0 auto 8px auto;
     padding: 6px 12px;
-    background: #e74c3c;
+    background: #9b5a53;
     color: white;
     border: none;
     border-radius: 4px;
@@ -689,7 +689,7 @@ body {
 }
 
 .skip-btn:hover {
-    background: #c0392b;
+    background: #883e5c;
     transform: scale(1.05);
 }
 
@@ -816,7 +816,7 @@ body {
 
 .photo-strip-header {
     text-align: center;
-    color: #333;
+    color: #341802;
     font-size: 12px;
     font-weight: bold;
     padding: 15px 10px 10px 10px;
@@ -892,7 +892,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    background: linear-gradient(transparent, rgb(42, 79, 42));
     padding: 10px 6px 6px 6px; /* Increased padding for larger frame */
     border-radius: 0 0 3px 3px;
 }
@@ -939,7 +939,7 @@ body {
 
 .photo-btn {
     padding: 10px 20px;
-    background: #e74c3c;
+    background: #46310b;
     color: white;
     border: none;
     border-radius: 4px;
@@ -967,7 +967,7 @@ body {
 }
 
 .photo-frame .photo-content {
-    color: #333;
+    color: #f5b9a5;
     font-size: 12px;
     text-align: center;
     padding: 5px;
@@ -1019,17 +1019,17 @@ body {
 }
 
 .playlist-title {
-    color: #9bbc0f;
+    color: #de20a5;
     font-size: 14px;
     font-weight: bold;
 }
 
 .spotify-embed-container {
-    background: #1a1a2e;
+    background: rgb(238, 148, 174);
     border-radius: 12px;
     padding: 10px;
     margin-bottom: 10px;
-    border: 2px solid #9bbc0f;
+    border: 2px solid #9982ee;
 }
 
 .spotify-embed-container iframe {
@@ -1047,8 +1047,8 @@ body {
 
 .playlist-btn {
     padding: 6px 12px;
-    background: #333;
-    color: #9bbc0f;
+    background: #faaeff;
+    color: #41034c;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -1056,19 +1056,19 @@ body {
     font-size: 10px;
     font-weight: bold;
     transition: all 0.2s ease;
-    border: 1px solid #9bbc0f;
+    border: 1px solid #9e84f6;
 }
 
 .playlist-btn:hover {
-    background: #9bbc0f;
+    background: #bc0f88;
     color: #333;
     transform: translateY(-1px);
 }
 
 .playlist-btn.active {
-    background: #1db954;
+    background: #aa6d6d;
     color: white;
-    border-color: #1db954;
+    border-color: #aa6d6d;
 }
 
 .music-info {
@@ -1077,14 +1077,14 @@ body {
 }
 
 .current-playlist {
-    color: #ffff00;
+    color: #57064d;
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
 .playlist-description {
-    color: #9bbc0f;
+    color: #510648;
     font-size: 10px;
     line-height: 1.4;
 }
